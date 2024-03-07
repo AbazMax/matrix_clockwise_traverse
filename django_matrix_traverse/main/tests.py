@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.conf import settings
 import unittest
 
-from .views import parse_matrix, clockwise_matrix_traverse, get_matrix
+from .matrix_convertation import parse_matrix, clockwise_matrix_traverse
 
 class ParseMatrixTestcase(unittest.TestCase):
     """Tests for parse_matrix function"""
