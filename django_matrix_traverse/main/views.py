@@ -53,10 +53,6 @@ def clockwise_matrix_traverse(matrix):
 
 def save_input_matrix(input_matrix):
     """Save input matrix"""
-    existing_matrix = Matrix.objects.filter(input_matrix=input_matrix)
-    # Check for input matrix in models, if not exist, create new one.
-    if existing_matrix.exists():
-        return
     new_matrix = Matrix(input_matrix=input_matrix)
     new_matrix.save()
 
@@ -66,7 +62,7 @@ router = Router()
 # Declare a route handler for GET requests
 @router.get('/get_matrix')
 async def get_matrix(request, url: str = None):
-    """Fet matrix from the URL and format it to list of values"""
+    """Get matrix from the URL and format it to list of values"""
     if not url:
         return HttpResponse('URL parameter is missing', status=400)
     try:
