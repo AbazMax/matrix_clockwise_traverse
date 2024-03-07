@@ -13,9 +13,7 @@ class MatrixField(models.TextField):
 
     def validate_matrix_format(self, matrix):
         # format validation
-        print(matrix)
         matrix = matrix.replace('\r', '').strip().split('\n')
-        print(matrix)
         for row in matrix[::2]:
             pattern = r'^[+-]*$'
             if not re.search(pattern, row):
